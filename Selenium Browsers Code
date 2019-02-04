@@ -1,0 +1,31 @@
+www.softwareqa.us 
+
+Introduction
+This code is written in Java and very handy for to run selenium code in specific browsers.
+
+Initial steps
+Go to this URL: https://www.seleniumhq.org/download/
+Scroll down and you will find all the listed browsers.
+Click on any you want to use. To download click on “latest” anchor tag.
+ 
+Download the required file as per your operating system and save on local machine. 
+
+ 
+Browsers Code
+Syntax:
+System.setProperty(“webdriver.name.driver”,”File path to .exe file ”);
+WebDriver driver = new drivername();
+
+
+CHROME:
+System.setProperty("webdriver.chrome.driver","C:\\yourpath\\comes\\here\\chromedriver.exe");
+WebDriver driver = new ChromeDriver();
+
+
+FIREFOX:
+System.setProperty("webdriver.gecko.driver","C:\\yourpath\\comes\\here\\geckodriver.exe");		
+WebDriver driver = new FirefoxDriver();
+
+IE:
+System.setProperty("webdriver.ie.driver","C:\\yourpath\\comes\\here\\IEDriverServer.exe");
+WebDriver driver = new InternetExplorerDriver();
