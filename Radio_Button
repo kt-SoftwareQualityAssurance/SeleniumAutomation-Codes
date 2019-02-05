@@ -1,0 +1,40 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Radio_Buttons {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//SOME COMMANDS I HAVE DIVIDED IN MULTIPLE STEPS TO UNDERSTAND VERY WELL. THOSE CAN BE CONDENSED
+		
+	//Open Google Chrome	
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Kunaal\\eclipse-workspace\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+	//Get the Web Page	
+		driver.get("http://www.echoecho.com/htmlforms10.htm");
+	//Find an element by using xpath	
+		driver.findElement(By.xpath("//input[@value='Milk']")).click();
+	//Find total number of items in radio buttons group
+		System.out.print(driver.findElements(By.xpath("//input[@name='group1']")).size());
+	//Lets save in another variable the size value
+		int count = driver.findElements(By.xpath("//input[@name='group1']")).size();
+		
+	//Get all the values of radio buttons and we want to select only the one we want without hard coding.
+		for(int i =0; i<count; i++) {
+			System.out.print(driver.findElements(By.xpath("//input[@name='group1']")).get(i).getAttribute("value"));
+			String text = driver.findElements(By.xpath("//input[@name='group1']")).get(i).getAttribute("value");
+	//We want to select cheese if that comes in the list.		
+			if(text.equals("Cheese")) {
+	//Remember cheese is a value, so its case sensetive			
+				System.out.print(text);
+				driver.findElements(By.xpath("//input[@name='group1']")).get(i).click();
+			}else {
+				System.out.print("Not Found");
+			}
+		}
+		
+	}
+
+}
